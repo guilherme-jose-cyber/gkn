@@ -9,17 +9,21 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
-    {
-        Schema::create('jobs', function (Blueprint $table) {
-            $table->id();
-            $table->string('queue')->index();
-            $table->longText('payload');
-            $table->unsignedTinyInteger('attempts');
-            $table->unsignedInteger('reserved_at')->nullable();
-            $table->unsignedInteger('available_at');
-            $table->unsignedInteger('created_at');
-        });
+    public function up()
+{
+    Schema::create('invoices', function (Blueprint $table) {
+        $table->id();
+        $table->foreignId('company_id')->constrained()->onDelete('cascade');
+        $table->string('invoice_number');
+        $table->string('series');
+        $table->dateTime('issued_at');
+        $table->decimal('total_value', 10, 2);
+        $table->json('items')->nullable();
+        $table->json('tax_info')->nullable();
+        $table->string('status');
+        $table->timestamps();
+    });
+}
 
         Schema::create('job_batches', function (Blueprint $table) {
             $table->string('id')->primary();
