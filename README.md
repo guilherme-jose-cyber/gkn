@@ -1,5 +1,6 @@
 <div align="center">
-# **AutoTraffic API: Uma Solução Inteligente para desenvolver o Tráfego pago na sua empresa**
+# AutoTraffic API: Uma Solução Inteligente para desenvolver o Tráfego pago na sua empresa
+
 
 _"Aplicação desenvolvida com Laravel 12, oferecendo eficiência e escalabilidade"_
 
